@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@3.2.37/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="handleAdd">{{ count }}</button>
+    <div>num: {{ num }}</div>
+  </div>
+
+  <script>
+    const { createApp, ref, getCurrentInstance } = Vue
+    const App = {
+      data() {
+        return {
+          count: 0
+        }
+      },
+      setup() {
+        let num = ref(0)
+        console.log(num)
+        const vueInstance = getCurrentInstance();
+        const handleAdd = () => {
+          vueInstance.data.count++
+          num.value = vueInstance.data.count
+        }
+        return { num, handleAdd }
+      }
+    }
+    // createApp(App).mount('#not-exist')
+    createApp(App).mount('#app')
+    console.log(window)
+
+    const funcUncaught = () => {
+      const downloadLink = document.createElement('a')
+      const notExistDom = document.querySelector('#not-exist')
+      notExistDom.appendChild(downloadLink)
+    }
+    // funcUncaught()
+  </script>
+</body>
+</html>
