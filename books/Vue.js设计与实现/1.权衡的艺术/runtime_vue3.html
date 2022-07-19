@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="../js/vue.global.js"></script>
+  <!-- <script src="../js/vue.runtime.global.js"></script> -->
+  <script>
+    const { createApp, ref, getCurrentInstance, h } = Vue
+    const App = {
+      data() {
+        return {
+          message: 'Hello world!'
+        }
+      },
+      setup() {
+        let num = ref(0)
+        console.log(num)
+      },
+      template: '<div>{{this.message}}</div>',
+      // render () {
+      //   return h('div', this.message)
+      // }
+    }
+    createApp(App).mount('#app')
+  </script>
+</body>
+</html>

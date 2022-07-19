@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="../js/vue_2.7.js"></script>
+  <!-- <script src="../js/vue_2.7.runtime.js"></script> -->
+  <script>
+    new Vue({
+      el: '#app',
+      mounted() {
+          console.log(this.message)
+      },
+      data: {
+          message: 'Hello World!'
+      },
+      template: '<div>{{this.message}}</div>',
+      // render (createElement) {
+      //   return createElement('div', this.message)
+      // }
+    })
+  </script>
+</body>
+</html>
